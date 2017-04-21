@@ -96,7 +96,7 @@ class TinyMCE(widgets.Textarea):
         if sys.version_info[0] == 2:
             from django.utils.encoding import smart_unicode
             value = smart_unicode(value)
-        final_attrs = self.build_attrs(attrs, name=name)
+        final_attrs = self.build_attrs(attrs)
         self.mce_settings['elements'] = "id_%s" % name
         mce_json = JSONEncoder().encode(self.mce_settings).replace("\"function", "function").replace("}\"", "}")
         return mark_safe(u'''<div%s>%s</div>
